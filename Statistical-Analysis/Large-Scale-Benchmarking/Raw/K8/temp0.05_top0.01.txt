@@ -1,0 +1,101 @@
+============================================================
+LOADING CSV DATA
+============================================================
+RAW:
+     Case Baseline   Stella  BioBERT MedEmbed PubMedBert
+0       1  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+1       2    WRONG    WRONG    WRONG    WRONG      WRONG
+2       3  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+3       4  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+4       5    WRONG    WRONG    WRONG    WRONG    CORRECT
+..    ...      ...      ...      ...      ...        ...
+345   346    WRONG    WRONG    WRONG    WRONG      WRONG
+346   347    WRONG    WRONG    WRONG    WRONG      WRONG
+347   348  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+348   349  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+349   350  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+
+[350 rows x 6 columns]
+
+Parameters extracted:
+{'k': ['8', '8', '8', '8', '8'], 'temp': ['0.05', '0.05', '0.05', '0.05', '0.05'], 'top_p': ['0.01', '0.01', '0.01', '0.01', '0.01']}
+
+============================================================
+CONVERTING TO BINARY
+============================================================
+BIN:
+     Case  Baseline  Stella  BioBERT  MedEmbed  PubMedBert
+0       1         1       1        1         1           1
+1       2         0       0        0         0           0
+2       3         1       1        1         1           1
+3       4         1       1        1         1           1
+4       5         0       0        0         0           1
+..    ...       ...     ...      ...       ...         ...
+345   346         0       0        0         0           0
+346   347         0       0        0         0           0
+347   348         1       1        1         1           1
+348   349         1       1        1         1           1
+349   350         1       1        1         1           1
+
+[350 rows x 6 columns]
+
+============================================================
+RUNNING COCHRAN'S Q AND MCNEMAR TESTS
+============================================================
+=== Overview ===
+N cases: 350
+Accuracies:
+  PubMedBert: 0.5543 (194/350)
+  Stella: 0.5514 (192/350)
+  MedEmbed: 0.5400 (189/350)
+  BioBERT: 0.5257 (184/350)
+  Baseline: 0.4943 (173/350)
+
+=== Cochran's Q ===
+Q-statistic: 13.511521
+P-value:     9.028902e-03
+
+=== Post-hoc Pairwise McNemar (Bonferroni) ===
+Comparisons: 10
+Corrected alpha: 0.005
+
+Baseline vs Stella
+  discordant: Baseline wins 24, Stella wins 44 (total 68)
+  p=2.121768e-02  [chi2]  => ns
+
+Baseline vs BioBERT
+  discordant: Baseline wins 23, BioBERT wins 34 (total 57)
+  p=1.853263e-01  [chi2]  => ns
+
+Baseline vs MedEmbed
+  discordant: Baseline wins 21, MedEmbed wins 37 (total 58)
+  p=4.888463e-02  [chi2]  => ns
+
+Baseline vs PubMedBert
+  discordant: Baseline wins 22, PubMedBert wins 43 (total 65)
+  p=1.311266e-02  [chi2]  => ns
+
+Stella vs BioBERT
+  discordant: Stella wins 24, BioBERT wins 15 (total 39)
+  p=2.001848e-01  [chi2]  => ns
+
+Stella vs MedEmbed
+  discordant: Stella wins 16, MedEmbed wins 12 (total 28)
+  p=5.707504e-01  [chi2]  => ns
+
+Stella vs PubMedBert
+  discordant: Stella wins 13, PubMedBert wins 14 (total 27)
+  p=1.000000e+00  [chi2]  => ns
+
+BioBERT vs MedEmbed
+  discordant: BioBERT wins 13, MedEmbed wins 18 (total 31)
+  p=4.724976e-01  [chi2]  => ns
+
+BioBERT vs PubMedBert
+  discordant: BioBERT wins 13, PubMedBert wins 23 (total 36)
+  p=1.336144e-01  [chi2]  => ns
+
+MedEmbed vs PubMedBert
+  discordant: MedEmbed wins 10, PubMedBert wins 15 (total 25)
+  p=4.237108e-01  [chi2]  => ns
+

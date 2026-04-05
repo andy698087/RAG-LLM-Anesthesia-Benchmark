@@ -1,0 +1,58 @@
+============================================================
+LOADING CSV DATA
+============================================================
+RAW:
+     Case Baseline   Stella  BioBERT MedEmbed PubMedBert
+0       1  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+1       2    WRONG    WRONG    WRONG    WRONG      WRONG
+2       3  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+3       4  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+4       5  CORRECT  CORRECT    WRONG  CORRECT    CORRECT
+..    ...      ...      ...      ...      ...        ...
+345   346    WRONG    WRONG    WRONG    WRONG      WRONG
+346   347    WRONG    WRONG    WRONG    WRONG      WRONG
+347   348  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+348   349  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+349   350  CORRECT  CORRECT  CORRECT  CORRECT    CORRECT
+
+[350 rows x 6 columns]
+
+Parameters extracted:
+{'k': ['4', '4', '4', '4', '4'], 'temp': ['0.1', '0.1', '0.1', '0.1', '0.1'], 'top_p': ['0.1', '0.1', '0.1', '0.1', '0.1']}
+
+============================================================
+CONVERTING TO BINARY
+============================================================
+BIN:
+     Case  Baseline  Stella  BioBERT  MedEmbed  PubMedBert
+0       1         1       1        1         1           1
+1       2         0       0        0         0           0
+2       3         1       1        1         1           1
+3       4         1       1        1         1           1
+4       5         1       1        0         1           1
+..    ...       ...     ...      ...       ...         ...
+345   346         0       0        0         0           0
+346   347         0       0        0         0           0
+347   348         1       1        1         1           1
+348   349         1       1        1         1           1
+349   350         1       1        1         1           1
+
+[350 rows x 6 columns]
+
+============================================================
+RUNNING COCHRAN'S Q AND MCNEMAR TESTS
+============================================================
+=== Overview ===
+N cases: 350
+Accuracies:
+  Stella: 0.5514 (192/350)
+  PubMedBert: 0.5371 (188/350)
+  MedEmbed: 0.5371 (188/350)
+  BioBERT: 0.5343 (187/350)
+  Baseline: 0.5029 (176/350)
+
+=== Cochran's Q ===
+Q-statistic: 8.931818
+P-value:     6.282648e-02
+
+No significant difference at alpha=0.05. (Stop here)

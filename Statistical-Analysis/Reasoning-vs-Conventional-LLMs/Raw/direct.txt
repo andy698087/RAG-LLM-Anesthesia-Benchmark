@@ -1,0 +1,135 @@
+RAW:
+     Case LLAMA_3.0_8B_INSTRUCT  ... QWEN_3.0_8B QWEN_3.0_32B
+0       1               CORRECT  ...     CORRECT      CORRECT
+1       2               CORRECT  ...     CORRECT      CORRECT
+2       3               CORRECT  ...     CORRECT      CORRECT
+3       4               CORRECT  ...     CORRECT      CORRECT
+4       5               CORRECT  ...     CORRECT      CORRECT
+..    ...                   ...  ...         ...          ...
+295   296               CORRECT  ...     CORRECT      CORRECT
+296   297               CORRECT  ...     CORRECT      CORRECT
+297   298               CORRECT  ...     CORRECT      CORRECT
+298   299                 WRONG  ...       WRONG      CORRECT
+299   300               CORRECT  ...     CORRECT      CORRECT
+
+[300 rows x 8 columns]
+BIN:
+     Case  LLAMA_3.0_8B_INSTRUCT  ...  QWEN_3.0_8B  QWEN_3.0_32B
+0       1                      1  ...            1             1
+1       2                      1  ...            1             1
+2       3                      1  ...            1             1
+3       4                      1  ...            1             1
+4       5                      1  ...            1             1
+..    ...                    ...  ...          ...           ...
+295   296                      1  ...            1             1
+296   297                      1  ...            1             1
+297   298                      1  ...            1             1
+298   299                      0  ...            0             1
+299   300                      1  ...            1             1
+
+[300 rows x 8 columns]
+Model dict keys: ['LLAMA_3.0_8B_INSTRUCT', 'LLAMA_3.1_8B_INSTRUCT', 'LLAMA_3.2_3B_INSTRUCT', 'LLAMA_3.3_70B_INSTRUCT', 'QWEN_2.5_72B_INSTRUCT', 'QWEN_3.0_8B', 'QWEN_3.0_32B']
+Example array length: 300
+=== Overview ===
+N cases: 300
+Accuracies:
+  QWEN_3.0_32B: 0.9600 (288/300)
+  QWEN_2.5_72B_INSTRUCT: 0.9233 (277/300)
+  QWEN_3.0_8B: 0.8967 (269/300)
+  LLAMA_3.3_70B_INSTRUCT: 0.8900 (267/300)
+  LLAMA_3.1_8B_INSTRUCT: 0.8600 (258/300)
+  LLAMA_3.0_8B_INSTRUCT: 0.8333 (250/300)
+  LLAMA_3.2_3B_INSTRUCT: 0.6733 (202/300)
+
+=== Cochran's Q ===
+Q-statistic: 193.758416
+P-value:     4.039158e-39
+
+=== Post-hoc Pairwise McNemar (Bonferroni) ===
+Comparisons: 21
+Corrected alpha: 0.00238095
+
+LLAMA_3.0_8B_INSTRUCT vs LLAMA_3.1_8B_INSTRUCT
+  discordant: LLAMA_3.0_8B_INSTRUCT wins 10, LLAMA_3.1_8B_INSTRUCT wins 18 (total 28)
+  p=1.858767e-01  [chi2]  => ns
+
+LLAMA_3.0_8B_INSTRUCT vs LLAMA_3.2_3B_INSTRUCT
+  discordant: LLAMA_3.0_8B_INSTRUCT wins 55, LLAMA_3.2_3B_INSTRUCT wins 7 (total 62)
+  p=2.387034e-09  [chi2]  => *
+
+LLAMA_3.0_8B_INSTRUCT vs LLAMA_3.3_70B_INSTRUCT
+  discordant: LLAMA_3.0_8B_INSTRUCT wins 11, LLAMA_3.3_70B_INSTRUCT wins 28 (total 39)
+  p=1.040562e-02  [chi2]  => ns
+
+LLAMA_3.0_8B_INSTRUCT vs QWEN_2.5_72B_INSTRUCT
+  discordant: LLAMA_3.0_8B_INSTRUCT wins 9, QWEN_2.5_72B_INSTRUCT wins 36 (total 45)
+  p=1.062526e-04  [chi2]  => *
+
+LLAMA_3.0_8B_INSTRUCT vs QWEN_3.0_8B
+  discordant: LLAMA_3.0_8B_INSTRUCT wins 15, QWEN_3.0_8B wins 34 (total 49)
+  p=1.012799e-02  [chi2]  => ns
+
+LLAMA_3.0_8B_INSTRUCT vs QWEN_3.0_32B
+  discordant: LLAMA_3.0_8B_INSTRUCT wins 8, QWEN_3.0_32B wins 46 (total 54)
+  p=4.776936e-07  [chi2]  => *
+
+LLAMA_3.1_8B_INSTRUCT vs LLAMA_3.2_3B_INSTRUCT
+  discordant: LLAMA_3.1_8B_INSTRUCT wins 60, LLAMA_3.2_3B_INSTRUCT wins 4 (total 64)
+  p=6.198986e-12  [chi2]  => *
+
+LLAMA_3.1_8B_INSTRUCT vs LLAMA_3.3_70B_INSTRUCT
+  discordant: LLAMA_3.1_8B_INSTRUCT wins 14, LLAMA_3.3_70B_INSTRUCT wins 23 (total 37)
+  p=1.884454e-01  [chi2]  => ns
+
+LLAMA_3.1_8B_INSTRUCT vs QWEN_2.5_72B_INSTRUCT
+  discordant: LLAMA_3.1_8B_INSTRUCT wins 10, QWEN_2.5_72B_INSTRUCT wins 29 (total 39)
+  p=3.947752e-03  [chi2]  => ns
+
+LLAMA_3.1_8B_INSTRUCT vs QWEN_3.0_8B
+  discordant: LLAMA_3.1_8B_INSTRUCT wins 17, QWEN_3.0_8B wins 28 (total 45)
+  p=1.360371e-01  [chi2]  => ns
+
+LLAMA_3.1_8B_INSTRUCT vs QWEN_3.0_32B
+  discordant: LLAMA_3.1_8B_INSTRUCT wins 8, QWEN_3.0_32B wins 38 (total 46)
+  p=1.904378e-05  [chi2]  => *
+
+LLAMA_3.2_3B_INSTRUCT vs LLAMA_3.3_70B_INSTRUCT
+  discordant: LLAMA_3.2_3B_INSTRUCT wins 6, LLAMA_3.3_70B_INSTRUCT wins 71 (total 77)
+  p=3.020565e-13  [chi2]  => *
+
+LLAMA_3.2_3B_INSTRUCT vs QWEN_2.5_72B_INSTRUCT
+  discordant: LLAMA_3.2_3B_INSTRUCT wins 3, QWEN_2.5_72B_INSTRUCT wins 78 (total 81)
+  p=1.997666e-16  [chi2]  => *
+
+LLAMA_3.2_3B_INSTRUCT vs QWEN_3.0_8B
+  discordant: LLAMA_3.2_3B_INSTRUCT wins 7, QWEN_3.0_8B wins 74 (total 81)
+  p=2.244976e-13  [chi2]  => *
+
+LLAMA_3.2_3B_INSTRUCT vs QWEN_3.0_32B
+  discordant: LLAMA_3.2_3B_INSTRUCT wins 5, QWEN_3.0_32B wins 91 (total 96)
+  p=4.125481e-18  [chi2]  => *
+
+LLAMA_3.3_70B_INSTRUCT vs QWEN_2.5_72B_INSTRUCT
+  discordant: LLAMA_3.3_70B_INSTRUCT wins 9, QWEN_2.5_72B_INSTRUCT wins 19 (total 28)
+  p=8.897301e-02  [chi2]  => ns
+
+LLAMA_3.3_70B_INSTRUCT vs QWEN_3.0_8B
+  discordant: LLAMA_3.3_70B_INSTRUCT wins 18, QWEN_3.0_8B wins 20 (total 38)
+  p=8.711315e-01  [chi2]  => ns
+
+LLAMA_3.3_70B_INSTRUCT vs QWEN_3.0_32B
+  discordant: LLAMA_3.3_70B_INSTRUCT wins 8, QWEN_3.0_32B wins 29 (total 37)
+  p=1.009091e-03  [chi2]  => *
+
+QWEN_2.5_72B_INSTRUCT vs QWEN_3.0_8B
+  discordant: QWEN_2.5_72B_INSTRUCT wins 15, QWEN_3.0_8B wins 7 (total 22)
+  p=1.338005e-01  [exact]  => ns
+
+QWEN_2.5_72B_INSTRUCT vs QWEN_3.0_32B
+  discordant: QWEN_2.5_72B_INSTRUCT wins 3, QWEN_3.0_32B wins 14 (total 17)
+  p=1.272583e-02  [exact]  => ns
+
+QWEN_3.0_8B vs QWEN_3.0_32B
+  discordant: QWEN_3.0_8B wins 3, QWEN_3.0_32B wins 22 (total 25)
+  p=3.182172e-04  [chi2]  => *
+
