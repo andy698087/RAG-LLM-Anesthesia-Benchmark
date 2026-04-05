@@ -24,13 +24,12 @@ Simulation outputs and model predictions from the hyperparameter optimization ex
 - **Figures/**: Visualization of correct answer counts and summary results
 - **Best\_Score\_Comparison.xlsx**: Comparative summary of top-performing configurations
 
-### [Experiment-2\_Large-Scale-Benchmarking](Experiment-2_Large-Scale-Benchmarking/)
+### [Experiment-2\_Embedding-and-Retrieval-Depth-Evaluation](Experiment-2_Embedding-and-Retrieval-Depth-Evaluation/)
 
-Full evaluation results for the large-scale benchmarking experiment using a 350-item question set from *Anesthesiology Examination and Board Review* (7th edition).
+Full evaluation results for the embedding model and retrieval depth experiment using a 350-item question set from *Anesthesiology Examination and Board Review* (7th edition).
 
 - **BARE.xlsx**: Baseline without retrieval
 - **RAG[0-3]\_K[4-20].xlsx**: Results across four embedding models and retrieval depths K=4, 8, 12, 16, 20
-- **COCHRAN\_TEST.xlsx**: Cochran's Q test results for this experiment
 - **SUMMARY.xlsx**: Aggregated performance summary
 - **Figures/**: Summary visualization for the 350-question evaluation
 
@@ -62,9 +61,8 @@ Benchmarking results comparing reasoning-enhanced versus conventional instructio
 
 Complete statistical evaluation outputs used to determine significance of performance differences among RAG configurations.
 
-- **Statistical Significance Analysis.docx/.pdf/.xlsx**: Comprehensive statistical analysis report
-- **Large-Scale-Benchmarking/**: Cochran's Q test and raw McNemar's test outputs for Experiment 2 across retrieval depths K=4, 8, 12
-- **Reasoning-vs-Conventional-LLMs/**: Cochran's Q test results for Experiment 5 across all retrieval conditions (Bare, Direct, Combined, Easy, Medium, Hard)
+- **Embedding-and-Retrieval-Depth-Evaluation (Experiment 2)/**: Cochran's Q test and raw McNemar's test outputs for Experiment 2 across retrieval depths K=4, 8, 12
+- **Reasoning-vs-Conventional-LLMs (Experiment 5)/**: Cochran's Q test results for Experiment 5 across all retrieval conditions (Bare, Direct, Combined, Easy, Medium, Hard)
 
 ## File Formats
 
