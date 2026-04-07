@@ -45,7 +45,7 @@ Detailed outputs from the self-reflective RAG pipeline evaluation on the 350-que
 Evaluation outputs analyzing retrieval dynamics and model scaling on a challenging 10-question diagnostic subset. Compares LLM performance across parameter scales (3B to 72B) under direct context injection versus consolidated retrieval conditions.
 
 - **Retrieval\_Dynamics\_Report.xlsx**: Item-level accuracy report
-- **Retrieval-Sources/**: Retrieval source data for the 10-question diagnostic subset
+- **Retrieval-Sources/**: Curated retrieval source for the 10-question subset (see [Retrieval Sources Across Experiments](#retrieval-sources-across-experiments))
 
 ### [Experiment-5\_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity](Experiment-5_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity/)
 
@@ -56,9 +56,7 @@ Benchmarking results comparing reasoning-enhanced versus conventional instructio
   - **Direct.xlsx**: Direct context injection
   - **Combined.xlsx**: Combined retrieval
   - **Combined\_Redundant\_Easy/Medium/Hard.xlsx**: Combined retrieval with varying distractor noise levels
-- **Retrieval-Sources/**: Retrieval source documents used to construct each retrieval condition
-  - **combine\_explanation.py**: Source for Direct and Combined scenarios
-  - **combined\_redundant\_easy/medium/hard.py**: Sources for Combined with Easy, Medium, and Hard distractor noise levels
+- **Retrieval-Sources/**: Curated retrieval source documents for each condition (see [Retrieval Sources Across Experiments](#retrieval-sources-across-experiments))
 - **Settings\_and\_Comparison.xlsx**: Model settings and cross-model performance comparison
 
 ### [Statistical-Analysis](Statistical-Analysis/)
@@ -67,6 +65,20 @@ Complete statistical evaluation outputs used to determine significance of perfor
 
 - **Embedding-and-Retrieval-Depth-Evaluation (Experiment 2)/**: Cochran's Q test and raw McNemar's test outputs for Experiment 2 across retrieval depths K=4, 8, 12
 - **Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity (Experiment 5)/**: Cochran's Q test results for Experiment 5 across all retrieval conditions (Bare, Direct, Combined, Easy, Medium, Hard)
+
+## Retrieval Sources Across Experiments
+
+The choice of retrieval source is a key variable across the five experiments. The progression reflects lessons learned about retrieval complexity:
+
+- **Experiments 1–3** used *Miller's Anesthesia* (a comprehensive clinical textbook) as the primary retrieval corpus. This large and complex source proved challenging: retrieval accuracy degraded as the number of questions increased and the source material grew more heterogeneous.
+
+- **Experiment 4** employed two retrieval sources:
+  1. **`small_set_10_question.py`** — Carefully curated explanations from *Anesthesiology Examination and Board Review* for a controlled 10-question subset. Results from this source are reported in Tables 3, 4, and 5.
+  2. **Miller's Anesthesia** — Used specifically to demonstrate the advantage of semantic chunking over recursive chunking for semantic preservation (Figure 9). Only 2 of the 10 questions had sufficiently clear and localized explanations in the textbook; semantic chunking successfully retrieved the relevant passage for one of them, whereas recursive chunking failed for both.
+
+- **Experiment 5** shifted entirely to carefully curated retrieval sources derived from the question book, enabling precise control over retrieval complexity:
+  - **`combine_explanation.py`** — All explanations aggregated into a single text block, used for the Combined retrieval condition. The Direct condition uses the same content but separated per question, providing each model with only the relevant explanation.
+  - **`combined_redundant_easy.py`**, **`combined_redundant_medium.py`**, **`combined_redundant_hard.py`** — Augmented versions of the combined source with increasing levels of distractor noise injected to test model robustness under Easy, Medium, and Hard retrieval conditions, respectively.
 
 ## File Formats
 
