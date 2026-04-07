@@ -46,7 +46,7 @@ Evaluation outputs analyzing retrieval dynamics and model scaling on a challengi
 
 - **Retrieval\_Dynamics\_Report.xlsx**: Item-level accuracy report
 
-### [Experiment-5\_Reasoning-vs-Conventional-LLMs](Experiment-5_Reasoning-vs-Conventional-LLMs/)
+### [Experiment-5\_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity](Experiment-5_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity/)
 
 Benchmarking results comparing reasoning-enhanced versus conventional instruction-tuned LLMs. Seven models from the Qwen and LLaMA families are evaluated under retrieval complexity constraints ranging from no external context ("Bare") to noise-augmented document environments.
 
@@ -62,7 +62,7 @@ Benchmarking results comparing reasoning-enhanced versus conventional instructio
 Complete statistical evaluation outputs used to determine significance of performance differences among RAG configurations.
 
 - **Embedding-and-Retrieval-Depth-Evaluation (Experiment 2)/**: Cochran's Q test and raw McNemar's test outputs for Experiment 2 across retrieval depths K=4, 8, 12
-- **Reasoning-vs-Conventional-LLMs (Experiment 5)/**: Cochran's Q test results for Experiment 5 across all retrieval conditions (Bare, Direct, Combined, Easy, Medium, Hard)
+- **Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity (Experiment 5)/**: Cochran's Q test results for Experiment 5 across all retrieval conditions (Bare, Direct, Combined, Easy, Medium, Hard)
 
 ## File Formats
 
