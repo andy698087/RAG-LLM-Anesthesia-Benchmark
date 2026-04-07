@@ -45,6 +45,7 @@ Detailed outputs from the self-reflective RAG pipeline evaluation on the 350-que
 Evaluation outputs analyzing retrieval dynamics and model scaling on a challenging 10-question diagnostic subset. Compares LLM performance across parameter scales (3B to 72B) under direct context injection versus consolidated retrieval conditions.
 
 - **Retrieval\_Dynamics\_Report.xlsx**: Item-level accuracy report
+- **Retrieval-Sources/**: Retrieval source data for the 10-question diagnostic subset
 
 ### [Experiment-5\_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity](Experiment-5_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity/)
 
@@ -55,6 +56,9 @@ Benchmarking results comparing reasoning-enhanced versus conventional instructio
   - **Direct.xlsx**: Direct context injection
   - **Combined.xlsx**: Combined retrieval
   - **Combined\_Redundant\_Easy/Medium/Hard.xlsx**: Combined retrieval with varying distractor noise levels
+- **Retrieval-Sources/**: Retrieval source documents used to construct each retrieval condition
+  - **combine\_explanation.py**: Source for Direct and Combined scenarios
+  - **combined\_redundant\_easy/medium/hard.py**: Sources for Combined with Easy, Medium, and Hard distractor noise levels
 - **Settings\_and\_Comparison.xlsx**: Model settings and cross-model performance comparison
 
 ### [Statistical-Analysis](Statistical-Analysis/)
