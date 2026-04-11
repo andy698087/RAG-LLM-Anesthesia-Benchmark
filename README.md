@@ -23,6 +23,7 @@ Simulation outputs and model predictions from the hyperparameter optimization ex
 - **SELF\_RAG\_0\_K\_[4,8]/**: Self-reflective RAG configurations
 - **Figures/**: Visualization of correct answer counts and summary results
 - **Best\_Score\_Comparison.xlsx**: Comparative summary of top-performing configurations
+- **Scripts/**: `rag_46_questions.py` — RAG pipeline using Llama-3-8B-Instruct with BioBERT embeddings on the 46-question set
 
 ### [Experiment-2\_Embedding-and-Retrieval-Depth-Evaluation](Experiment-2_Embedding-and-Retrieval-Depth-Evaluation/)
 
@@ -32,6 +33,7 @@ Full evaluation results for the embedding model and retrieval depth experiment u
 - **RAG[0-3]\_K[4-20].xlsx**: Results across four embedding models and retrieval depths K=4, 8, 12, 16, 20
 - **SUMMARY.xlsx**: Aggregated performance summary
 - **Figures/**: Summary visualization for the 350-question evaluation
+- **Scripts/**: `rag_350_questions.py` — RAG pipeline using Llama-3-8B-Instruct with BioBERT embeddings on the 350-question set
 
 ### [Experiment-3\_Self-Reflective-RAG-Pipeline](Experiment-3_Self-Reflective-RAG-Pipeline/)
 
@@ -39,6 +41,7 @@ Detailed outputs from the self-reflective RAG pipeline evaluation on the 350-que
 
 - **SELF\_RAG[0-2]\_K[4-20].xlsx**: Self-RAG results across embedding models and retrieval depths
 - **SUMMARY.xlsx**: Aggregated performance summary
+- **Scripts/**: `self_rag_350_questions.py` — Self-reflective RAG pipeline with LangGraph, including document relevance grading and web search fallback
 
 ### [Experiment-4\_Retrieval-Dynamics-and-Model-Scaling](Experiment-4_Retrieval-Dynamics-and-Model-Scaling/)
 
@@ -46,6 +49,10 @@ Evaluation outputs analyzing retrieval dynamics and model scaling on a challengi
 
 - **Retrieval\_Dynamics\_Report.xlsx**: Item-level accuracy report
 - **Retrieval-Sources/**: Curated retrieval source for the 10-question subset (see [Retrieval Sources Across Experiments](#retrieval-sources-across-experiments))
+- **Scripts/**:
+  - `rag_10_questions_combine.py` — RAG with Qwen2.5-72B using combined retrieval source via semantic chunking
+  - `rag_10_questions_seperate.py` — Direct context injection with per-question explanations
+  - `rag_semantic_chunking_question_6_demonstration.py` — Demonstration of semantic vs. recursive chunking on Miller's textbook (Figure 9)
 
 ### [Experiment-5\_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity](Experiment-5_Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity/)
 
@@ -57,6 +64,11 @@ Benchmarking results comparing reasoning-enhanced versus conventional instructio
   - **Combined.xlsx**: Combined retrieval
   - **Combined\_Redundant\_Easy/Medium/Hard.xlsx**: Combined retrieval with varying distractor noise levels
 - **Retrieval-Sources/**: Curated retrieval source documents for each condition (see [Retrieval Sources Across Experiments](#retrieval-sources-across-experiments))
+- **Scripts/**: One script per retrieval condition, all using Qwen2.5-72B-Instruct
+  - `bare.py` — No retrieval context (baseline)
+  - `direct.py` — Direct per-question context injection
+  - `combined.py` — Combined retrieval via semantic chunking
+  - `combinedredundant_easy.py`, `combinedredundant_medium.py`, `combinedredundant_hard.py` — Combined retrieval with increasing distractor noise
 - **Settings\_and\_Comparison.xlsx**: Model settings and cross-model performance comparison
 
 ### [Statistical-Analysis](Statistical-Analysis/)
@@ -65,6 +77,13 @@ Complete statistical evaluation outputs used to determine significance of perfor
 
 - **Embedding-and-Retrieval-Depth-Evaluation (Experiment 2)/**: Cochran's Q test and raw McNemar's test outputs for Experiment 2 across retrieval depths K=4, 8, 12
 - **Reasoning-vs-Conventional-LLMs-Across-Retrieval-Complexity (Experiment 5)/**: Cochran's Q test results for Experiment 5 across all retrieval conditions (Bare, Direct, Combined, Easy, Medium, Hard)
+
+### [Sample-Scripts](Sample-Scripts/)
+
+General-purpose sample code demonstrating the core RAG and semantic chunking pipelines used throughout the study.
+
+- **RAG\_sample\_test\_code.py** — End-to-end RAG pipeline example: PDF loading, BioBERT embedding, Chroma vector store, and Llama-3-8B answer generation
+- **semantic\_chunking\_sample\_test\_code.py** — Semantic chunking RAG pipeline example using SemanticChunker with Qwen3-32B
 
 ## Retrieval Sources Across Experiments
 
@@ -88,6 +107,7 @@ The choice of retrieval source is a key variable across the five experiments. Th
 | `.csv` | Raw statistical test input data |
 | `.txt` | Raw statistical test output logs |
 | `.png` | Data visualizations and summary figures |
+| `.py` | Python scripts for RAG pipelines, evaluation, and retrieval source data |
 | `.docx` / `.pdf` | Statistical analysis reports |
 
 ## Citation
